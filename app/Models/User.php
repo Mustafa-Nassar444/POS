@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -24,6 +25,7 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'image'
     ];
 
     /**
@@ -36,6 +38,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $appends=['image_path'];
     /**
      * The attributes that should be cast.
      *
@@ -44,4 +47,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected function firstName(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => ucfirst($value),
+        );
+    }
+    protected function lastName(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => ucfirst($value),
+        );
+    }
+
+    public function getImagePathAttribute(){
+        return asset('uploads/users/'.$this->image);
+    }
+
+
 }

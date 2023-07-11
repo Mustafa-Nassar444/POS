@@ -14,19 +14,11 @@ return [
     'roles_structure' => [
         'super_admin' => [
             'users' => 'c,r,u,d',
-        /*    'payments' => 'c,r,u,d',
-            'profile' => 'r,u'*/
+
         ],
- /*       'administrator' => [
-            'users' => 'c,r,u,d',
-            'profile' => 'r,u'
+        'admin'=>[
+
         ],
-        'user' => [
-            'profile' => 'r,u',
-        ],
-        'role_name' => [
-            'module_1_name' => 'c,r,u,d',
-        ]*/
     ],
 
     'permissions_map' => [

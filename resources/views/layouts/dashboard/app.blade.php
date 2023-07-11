@@ -305,7 +305,7 @@
 
         });//end of delete
 
-        // // image preview
+        // image preview
         // $(".image").change(function () {
         //
         //     if (this.files && this.files[0]) {

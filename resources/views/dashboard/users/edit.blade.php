@@ -29,8 +29,8 @@
 
                     <form action="{{ route('dashboard.users.update', $user->id) }}" method="post" enctype="multipart/form-data">
 
-                        {{ csrf_field() }}
-                        {{ method_field('put') }}
+                        @csrf
+                        @method('put')
 
                         <div class="form-group">
                             <label>@lang('site.first_name')</label>
@@ -51,11 +51,10 @@
                             <label>@lang('site.image')</label>
                             <input type="file" name="image" class="form-control image">
                         </div>
-
                         <div class="form-group">
-                            <img src="{{ $user->image_path }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
+                            <img src="{{ $user->image_path }}" style="width: 100px" class="img-thumbnail image-preview"
+                                 alt="">
                         </div>
-
                         <div class="form-group">
                             <label>@lang('site.permissions')</label>
                             <div class="nav-tabs-custom">
@@ -79,7 +78,7 @@
 
                                             @foreach ($maps as $map)
                                                 {{--create_users--}}
-                                                <label><input type="checkbox" name="permissions[]" {{ $user->hasPermission($map . '_' . $model) ? 'checked' : '' }} value="{{ $map . '_' . $model }}"> @lang('site.' . $map)</label>
+                                                <label><input type="checkbox" name="permissions[]" {{ $user->hasPermission($model . '_' . $map) ? 'checked' : '' }} value="{{ $model . '_' . $map }}"> @lang('site.' . $map)</label>
                                             @endforeach
 
                                         </div>

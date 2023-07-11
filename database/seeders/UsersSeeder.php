@@ -24,5 +24,11 @@ class UsersSeeder extends Seeder
             'password'=>Hash::make('123321153')
         ]);
         $user->attachRole('super_admin');
+        $user->syncPermissions([
+            'users_create',
+            'users_read',
+            'users_update',
+            'users_delete'
+        ]);
     }
 }

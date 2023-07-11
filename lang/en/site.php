@@ -70,13 +70,13 @@ return [
     'profit_percent' => 'Profit Percent',
 
     'ar' => [
-        'name' => 'الاسم بالغه العربيه',
-        'description' => 'الوصف بالغه العربيه',
+        'name' => 'Arabic Name',
+        'description' => 'Arabic Description',
     ],
 
     'en' => [
-        'name' => 'الاسم بالغه الانجليزيه',
-        'description' => 'الوصف بالغه الانجليزيه',
+        'name' => 'English Name',
+        'description' => 'English Description',
     ],
 
 ];

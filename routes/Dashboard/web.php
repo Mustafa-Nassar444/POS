@@ -16,9 +16,10 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+Route::group(['prefix' => LaravelLocalization::setLocale(),
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function()
 {
-    Route::name('dashboard.')->prefix('dashboard')->group(function (){
+    Route::name('dashboard.')->prefix('dashboard')->middleware(['auth'])->group(function (){
         Route::get('/index',[DashboardController::class,'index'])->name('welcome');
         Route::resource('/users',UserController::class)->except('show');
     });

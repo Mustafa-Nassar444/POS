@@ -29,8 +29,8 @@
 
                     <form action="{{ route('dashboard.users.store') }}" method="post" enctype="multipart/form-data">
 
-                        {{ csrf_field() }}
-                        {{ method_field('post') }}
+                       @csrf
+                        @method('post')
 
                         <div class="form-group">
                             <label>@lang('site.first_name')</label>
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="form-group">
-                            <img src="{{ asset('uploads/user_images/default.png') }}"  style="width: 100px" class="img-thumbnail image-preview" alt="">
+                            <img src="{{ asset('uploads/users/default.jpg') }}"  style="width: 100px" class="img-thumbnail image-preview" alt="">
                         </div>
 
                         <div class="form-group">
@@ -88,7 +88,7 @@
                                         <div class="tab-pane {{ $index == 0 ? 'active' : '' }}" id="{{ $model }}">
 
                                             @foreach ($maps as $map)
-                                                <label><input type="checkbox" name="permissions[]" value="{{ $map . '_' . $model }}"> @lang('site.' . $map)</label>
+                                                <label><input type="checkbox" name="permissions[]" value="{{ $model . '_' . $map }}"> @lang('site.' . $map)</label>
                                             @endforeach
 
                                         </div>
@@ -96,9 +96,9 @@
                                     @endforeach
 
                                 </div><!-- end of tab content -->
-                                
+
                             </div><!-- end of nav tabs -->
-                            
+
                         </div>
 
                         <div class="form-group">
