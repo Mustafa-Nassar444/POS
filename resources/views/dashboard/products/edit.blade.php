@@ -26,9 +26,8 @@
 
                     <form action="{{ route('dashboard.products.update', $product->id) }}" method="post" enctype="multipart/form-data">
 
-                        {{ csrf_field() }}
-                        {{ method_field('put') }}
-
+                       @csrf
+                        @method('put')
                         <div class="form-group">
                             <label>@lang('site.categories')</label>
                             <select name="category_id" class="form-control">
@@ -47,8 +46,9 @@
 
                             <div class="form-group">
                                 <label>@lang('site.' . $locale . '.description')</label>
-                                <textarea name="{{ $locale }}[description]" class="form-control ckeditor">{{ $product->description }}</textarea>
+                                <input type="text" name="{{ $locale }}[description]" class="form-control" value="{{ $product->description  }}">
                             </div>
+
 
                         @endforeach
 

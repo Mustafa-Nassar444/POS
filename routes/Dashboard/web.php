@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -22,6 +24,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::name('dashboard.')->prefix('dashboard')->middleware(['auth'])->group(function (){
         Route::get('/index',[DashboardController::class,'index'])->name('welcome');
         Route::resource('/users',UserController::class)->except('show');
+        Route::resource('/categories',CategoryController::class)->except('show');
+
+        Route::resource('/products',ProductController::class)->except('show');
+
     });
 
 });

@@ -18,11 +18,11 @@
             <div class="row">
 
                 {{-- categories--}}
-                {{--
+
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>{{ $categories_count }}</h3>
+                            <h3>{{ $categories->count() }}</h3>
 
                 <p>@lang('site.categories')</p>
             </div>
@@ -33,13 +33,13 @@
                 <i class="fa fa-arrow-circle-right"></i></a>
     </div>
 </div>
---}}
+
                 {{--products--}}
-                {{--
+
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>{{ $products_count }}</h3>
+                            <h3>{{ $products->count() }}</h3>
 
                 <p>@lang('site.products')</p>
             </div>
@@ -50,7 +50,7 @@
                 class="fa fa-arrow-circle-right"></i></a>
     </div>
 </div>
---}}
+
                 {{--clients--}}
                 {{--
                 <div class="col-lg-3 col-xs-6">

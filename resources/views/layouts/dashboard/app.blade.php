@@ -223,7 +223,7 @@
     </header>
 
     @include('layouts.dashboard._aside')
-
+    
     @yield('content')
 
     @include('partials._session')
@@ -305,7 +305,7 @@
 
         });//end of delete
 
-        // image preview
+        // // image preview
         // $(".image").change(function () {
         //
         //     if (this.files && this.files[0]) {
@@ -323,7 +323,7 @@
         CKEDITOR.config.language =  "{{ app()->getLocale() }}";
 
     });//end of ready
-
+    
 </script>
 @stack('scripts')
 </body>

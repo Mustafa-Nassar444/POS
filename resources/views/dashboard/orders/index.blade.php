@@ -7,7 +7,7 @@
         <section class="content-header">
 
             <h1>@lang('site.orders')
-                <small>{{ $orders->total() }} @lang('site.orders')</small>
+                <small>{{ $orders->count() }} @lang('site.orders')</small>
             </h1>
 
             <ol class="breadcrumb">

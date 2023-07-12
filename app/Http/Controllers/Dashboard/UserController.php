@@ -80,7 +80,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         //
-        $user=User::findOrFail($user->id);
+
         return view('dashboard.users.show',compact('user'));
     }
 

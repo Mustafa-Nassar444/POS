@@ -25,9 +25,9 @@
                     @include('partials._errors')
 
                     <form action="{{ route('dashboard.products.store') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('post')
 
-                        {{ csrf_field() }}
-                        {{ method_field('post') }}
 
                         <div class="form-group">
                             <label>@lang('site.categories')</label>
@@ -38,7 +38,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        
+
 
                         @foreach (config('translatable.locales') as $locale)
                             <div class="form-group">
@@ -48,7 +48,7 @@
 
                             <div class="form-group">
                                 <label>@lang('site.' . $locale . '.description')</label>
-                                <textarea name="{{ $locale }}[description]" class="form-control ckeditor">{{ old($locale . '.description') }}</textarea>
+                                <input type="text" name="{{ $locale }}[description]" class="form-control" value="{{ old($locale . '.description') }}">
                             </div>
 
                         @endforeach

@@ -26,8 +26,8 @@
 
                     <form action="{{ route('dashboard.categories.store') }}" method="post">
 
-                        {{ csrf_field() }}
-                        {{ method_field('post') }}
+                         @csrf
+                        @method('post')
 
                         @foreach (config('translatable.locales') as $locale)
                             <div class="form-group">
