@@ -15,9 +15,17 @@ class Product extends Model implements TranslatableContract
 
     protected $appends=['image_path','profit_percent'];
 
+    //Relations
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+    public function orders(){
+        return $this->belongsToMany(Order::class,'order_products');
+    }
+    // End Relations
+
+
     public function getImagePathAttribute(){
         return asset('uploads/products/'.$this->image);
     }

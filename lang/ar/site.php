@@ -33,7 +33,7 @@ return [
 
     'clients' => 'العملاء',
     'client_name' => 'اسم العميل',
-    'phone' => 'التلفون',
+    'phone' => 'التليفون',
     'address' => 'العنوان',
     'previous_orders' => 'الطلبات السابقه',
     'orders' => 'الطلبات',
@@ -66,7 +66,7 @@ return [
     'purchase_price' => 'سعر الشراء',
     'price' => 'السعر',
     'sale_price' => 'سعر البيع',
-    'stock' => 'المخزن',
+    'stock' => 'المخزون',
     'profit_percent' => 'المكسب',
 
     'ar' => [

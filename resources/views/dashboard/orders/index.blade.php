@@ -11,7 +11,7 @@
             </h1>
 
             <ol class="breadcrumb">
-                <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
+                <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
                 <li class="active">@lang('site.orders')</li>
             </ol>
         </section>
@@ -83,16 +83,16 @@
                                                     <i class="fa fa-list"></i>
                                                     @lang('site.show')
                                                 </button>
-                                                @if (auth()->user()->hasPermission('update_orders'))
+                                                @if (auth()->user()->hasPermission('orders_update'))
                                                     <a href="{{ route('dashboard.clients.orders.edit', ['client' => $order->client->id, 'order' => $order->id]) }}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> @lang('site.edit')</a>
                                                 @else
                                                     <a href="#" disabled class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
                                                 @endif
 
-                                                @if (auth()->user()->hasPermission('delete_orders'))
+                                                @if (auth()->user()->hasPermission('orders_delete'))
                                                     <form action="{{ route('dashboard.orders.destroy', $order->id) }}" method="post" style="display: inline-block;">
-                                                        {{ csrf_field() }}
-                                                        {{ method_field('delete') }}
+                                                        @csrf
+                                                        @method('delete')
                                                         <button type="submit" class="btn btn-danger btn-sm delete"><i class="fa fa-trash"></i> @lang('site.delete')</button>
                                                     </form>
 

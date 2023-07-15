@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\Client\OrderController;
+use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\UserController;
@@ -22,11 +24,18 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function()
 {
     Route::name('dashboard.')->prefix('dashboard')->middleware(['auth'])->group(function (){
-        Route::get('/index',[DashboardController::class,'index'])->name('welcome');
-        Route::resource('/users',UserController::class)->except('show');
-        Route::resource('/categories',CategoryController::class)->except('show');
+        Route::get('/',[DashboardController::class,'index'])->name('index');
 
-        Route::resource('/products',ProductController::class)->except('show');
+        Route::get('/order/{order}/products',[\App\Http\Controllers\Dashboard\OrderController::class,'products'])->name('orders.products');
+
+        Route::resources([
+            '/categories'=>CategoryController::class,
+            '/products'=>ProductController::class,
+            '/clients'=>ClientController::class,
+            '/clients.orders'=>OrderController::class,
+            '/orders'=>\App\Http\Controllers\Dashboard\OrderController::class,
+            '/users'=>UserController::class
+        ]);
 
     });
 

@@ -9,7 +9,7 @@
             <h1>@lang('site.add_order')</h1>
 
             <ol class="breadcrumb">
-                <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
+                <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
                 <li><a href="{{ route('dashboard.clients.index') }}">@lang('site.clients')</a></li>
                 <li class="active">@lang('site.add_order')</li>
             </ol>
@@ -32,7 +32,7 @@
                         <div class="box-body">
 
                             @foreach ($categories as $category)
-                                
+
                                 <div class="panel-group">
 
                                     <div class="panel panel-info">
@@ -111,8 +111,8 @@
 
                             <form action="{{ route('dashboard.clients.orders.store', $client->id) }}" method="post">
 
-                                {{ csrf_field() }}
-                                {{ method_field('post') }}
+                                @csrf
+                                @method('post')
 
                                 @include('partials._errors')
 
@@ -149,7 +149,7 @@
                             <div class="box-header">
 
                                 <h3 class="box-title" style="margin-bottom: 10px">@lang('site.previous_orders')
-                                    <small>{{ $orders->total() }}</small>
+                                    <small>{{ $orders->count() }}</small>
                                 </h3>
 
                             </div><!-- end of box header -->
@@ -188,7 +188,7 @@
 
                                 @endforeach
 
-                                {{ $orders->links() }}
+                                {{-- $orders->links() --}}
 
                             </div><!-- end of box body -->
 

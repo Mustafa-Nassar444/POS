@@ -22,7 +22,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>{{ $categories->count() }}</h3>
+                            <h3>{{ $categories }}</h3>
 
                 <p>@lang('site.categories')</p>
             </div>
@@ -39,7 +39,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>{{ $products->count() }}</h3>
+                            <h3>{{ $products }}</h3>
 
                 <p>@lang('site.products')</p>
             </div>
@@ -52,11 +52,10 @@
 </div>
 
                 {{--clients--}}
-                {{--
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3>{{ $clients_count }}</h3>
+                            <h3>{{ $clients}}</h3>
 
                 <p>@lang('site.clients')</p>
             </div>
@@ -66,14 +65,14 @@
             <a href="{{ route('dashboard.clients.index') }}" class="small-box-footer">@lang('site.read') <i
                 class="fa fa-arrow-circle-right"></i></a>
     </div>
-</div>--}
-                }
+</div>
+
 
                 {{--users--}}
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                           <h3>{{ $users->count() }}</h3>
+                           <h3>{{ $users }}</h3>
 
                             <p>@lang('site.users')</p>
                         </div>
@@ -112,13 +111,13 @@
         var line = new Morris.Line({
             element: 'line-chart',
             resize: true,
-            data:,{{-- [
+            data: [
                     @foreach ($sales_data as $data)
                 {
                     ym: "{{ $data->year }}-{{ $data->month }}", sum: "{{ $data->sum }}"
                 },
                 @endforeach
-            ],--}}
+            ],
             xkey: 'ym',
             ykeys: ['sum'],
             labels: ['@lang('site.total')'],
